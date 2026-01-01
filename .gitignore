@@ -55,3 +55,22 @@ coverage/
 # Documentation
 docs/_build/
 
+# Project specific - exclude rules and tasks folders
+rules/
+tasks/
+
+# API Keys and sensitive configuration
+*api-key*
+*api_key*
+*apikey*
+*API-KEY*
+*API_KEY*
+*APIKEY*
+config.php
+secrets.php
+credentials.php
+*.key
+*.pem
+*.p12
+*.pfx
+
