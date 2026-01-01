@@ -1,0 +1,333 @@
+/**
+ * Chat Triggers Styles
+ *
+ * Styles for proactive messages and trigger displays.
+ *
+ * @package WP_AI_Chatbot_LeadGen_Pro
+ * @since 1.0.0
+ */
+
+/* Proactive Message Container */
+.wp-ai-chatbot-proactive-message {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    z-index: 999998;
+    max-width: 300px;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.wp-ai-chatbot-proactive-message--visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+/* Message Content */
+.wp-ai-chatbot-proactive-message__content {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: var(--wp-ai-chatbot-bg, #ffffff);
+    border-radius: 16px;
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    position: relative;
+}
+
+/* Dark mode */
+[data-theme="dark"] .wp-ai-chatbot-proactive-message__content,
+.wp-ai-chatbot-proactive-message__content[data-theme="dark"] {
+    background: var(--wp-ai-chatbot-bg-dark, #1f2937);
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.3),
+        0 2px 4px -1px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.wp-ai-chatbot-proactive-message__content:hover {
+    box-shadow: 
+        0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+/* Avatar */
+.wp-ai-chatbot-proactive-message__avatar {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--wp-ai-chatbot-primary, #4f46e5) 0%, var(--wp-ai-chatbot-primary-dark, #4338ca) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.wp-ai-chatbot-proactive-message__avatar svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Text */
+.wp-ai-chatbot-proactive-message__text {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--wp-ai-chatbot-text, #1f2937);
+    padding-right: 20px;
+}
+
+[data-theme="dark"] .wp-ai-chatbot-proactive-message__text {
+    color: var(--wp-ai-chatbot-text-dark, #f3f4f6);
+}
+
+/* Close Button */
+.wp-ai-chatbot-proactive-message__close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--wp-ai-chatbot-text-muted, #9ca3af);
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.wp-ai-chatbot-proactive-message__close:hover {
+    background: var(--wp-ai-chatbot-hover-bg, rgba(0, 0, 0, 0.05));
+    color: var(--wp-ai-chatbot-text, #1f2937);
+}
+
+[data-theme="dark"] .wp-ai-chatbot-proactive-message__close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--wp-ai-chatbot-text-dark, #f3f4f6);
+}
+
+.wp-ai-chatbot-proactive-message__close svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Tail/Arrow pointing to toggle button */
+.wp-ai-chatbot-proactive-message__content::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 24px;
+    width: 16px;
+    height: 16px;
+    background: var(--wp-ai-chatbot-bg, #ffffff);
+    transform: rotate(45deg);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+    z-index: -1;
+}
+
+[data-theme="dark"] .wp-ai-chatbot-proactive-message__content::after {
+    background: var(--wp-ai-chatbot-bg-dark, #1f2937);
+}
+
+/* Animation variants */
+@keyframes wp-ai-chatbot-bounce-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+    50% {
+        transform: translateY(-5px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.wp-ai-chatbot-proactive-message--bounce.wp-ai-chatbot-proactive-message--visible {
+    animation: wp-ai-chatbot-bounce-in 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Pulse effect on avatar */
+@keyframes wp-ai-chatbot-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+    }
+}
+
+.wp-ai-chatbot-proactive-message--visible .wp-ai-chatbot-proactive-message__avatar {
+    animation: wp-ai-chatbot-pulse 2s infinite;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    .wp-ai-chatbot-proactive-message {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+        bottom: 90px;
+    }
+
+    .wp-ai-chatbot-proactive-message__content {
+        padding: 14px;
+    }
+
+    .wp-ai-chatbot-proactive-message__avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .wp-ai-chatbot-proactive-message__avatar svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .wp-ai-chatbot-proactive-message__text {
+        font-size: 13px;
+    }
+
+    .wp-ai-chatbot-proactive-message__content::after {
+        right: 50%;
+        transform: translateX(50%) rotate(45deg);
+    }
+}
+
+/* Trigger notification dot on toggle button */
+.wp-ai-chatbot-toggle--has-notification::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 14px;
+    height: 14px;
+    background: #ef4444;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    animation: wp-ai-chatbot-pulse 2s infinite;
+}
+
+/* Exit intent overlay (optional, for more aggressive prompts) */
+.wp-ai-chatbot-exit-intent-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.wp-ai-chatbot-exit-intent-overlay--visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.wp-ai-chatbot-exit-intent-modal {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.wp-ai-chatbot-exit-intent-overlay--visible .wp-ai-chatbot-exit-intent-modal {
+    transform: translateY(0);
+}
+
+.wp-ai-chatbot-exit-intent-modal__title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #1f2937;
+}
+
+.wp-ai-chatbot-exit-intent-modal__text {
+    font-size: 16px;
+    color: #6b7280;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.wp-ai-chatbot-exit-intent-modal__buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.wp-ai-chatbot-exit-intent-modal__btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.wp-ai-chatbot-exit-intent-modal__btn--primary {
+    background: var(--wp-ai-chatbot-primary, #4f46e5);
+    color: #ffffff;
+}
+
+.wp-ai-chatbot-exit-intent-modal__btn--primary:hover {
+    background: var(--wp-ai-chatbot-primary-dark, #4338ca);
+}
+
+.wp-ai-chatbot-exit-intent-modal__btn--secondary {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+.wp-ai-chatbot-exit-intent-modal__btn--secondary:hover {
+    background: #e5e7eb;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .wp-ai-chatbot-proactive-message,
+    .wp-ai-chatbot-proactive-message__content,
+    .wp-ai-chatbot-proactive-message__close,
+    .wp-ai-chatbot-exit-intent-overlay,
+    .wp-ai-chatbot-exit-intent-modal {
+        transition: none;
+    }
+
+    .wp-ai-chatbot-proactive-message--bounce.wp-ai-chatbot-proactive-message--visible {
+        animation: none;
+    }
+
+    .wp-ai-chatbot-proactive-message--visible .wp-ai-chatbot-proactive-message__avatar,
+    .wp-ai-chatbot-toggle--has-notification::after {
+        animation: none;
+    }
+}
+

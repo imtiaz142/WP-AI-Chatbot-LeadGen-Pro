@@ -1,0 +1,524 @@
+/**
+ * Lead Capture Form Styles
+ *
+ * Styling for the lead capture form in the chat widget.
+ *
+ * @package WP_AI_Chatbot_LeadGen_Pro
+ * @since   1.0.0
+ */
+
+/* ==========================================================================
+   CSS Variables
+   ========================================================================== */
+
+:root {
+	--lead-form-bg: #ffffff;
+	--lead-form-border: #e0e0e0;
+	--lead-form-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	--lead-form-title-color: #1a1a2e;
+	--lead-form-subtitle-color: #666666;
+	--lead-form-label-color: #374151;
+	--lead-form-input-bg: #ffffff;
+	--lead-form-input-border: #d1d5db;
+	--lead-form-input-focus-border: var(--wp-ai-chatbot-primary, #3b82f6);
+	--lead-form-input-text: #1f2937;
+	--lead-form-input-placeholder: #9ca3af;
+	--lead-form-submit-bg: var(--wp-ai-chatbot-primary, #3b82f6);
+	--lead-form-submit-hover: var(--wp-ai-chatbot-primary-hover, #2563eb);
+	--lead-form-submit-text: #ffffff;
+	--lead-form-dismiss-color: #6b7280;
+	--lead-form-dismiss-hover: #374151;
+	--lead-form-error-color: #dc2626;
+	--lead-form-success-bg: #dcfce7;
+	--lead-form-success-color: #166534;
+	--lead-form-required-color: #dc2626;
+}
+
+/* Dark mode */
+.wp-ai-chatbot-widget[data-theme="dark"] {
+	--lead-form-bg: #1e293b;
+	--lead-form-border: #334155;
+	--lead-form-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+	--lead-form-title-color: #f1f5f9;
+	--lead-form-subtitle-color: #94a3b8;
+	--lead-form-label-color: #e2e8f0;
+	--lead-form-input-bg: #0f172a;
+	--lead-form-input-border: #475569;
+	--lead-form-input-text: #f1f5f9;
+	--lead-form-input-placeholder: #64748b;
+	--lead-form-dismiss-color: #94a3b8;
+	--lead-form-dismiss-hover: #e2e8f0;
+	--lead-form-success-bg: #14532d;
+	--lead-form-success-color: #86efac;
+}
+
+/* ==========================================================================
+   Form Container
+   ========================================================================== */
+
+.wp-ai-chatbot-lead-form {
+	background: var(--lead-form-bg);
+	border-radius: 12px;
+	margin: 12px;
+	padding: 20px;
+	box-shadow: var(--lead-form-shadow);
+	border: 1px solid var(--lead-form-border);
+	animation: leadFormSlideUp 0.3s ease-out;
+}
+
+@keyframes leadFormSlideUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Style variations */
+.wp-ai-chatbot-lead-form[data-style="modal"] {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 420px;
+	width: 90%;
+	z-index: 10001;
+	margin: 0;
+}
+
+.wp-ai-chatbot-lead-form[data-style="slide-up"] {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border-radius: 24px 24px 0 0;
+	max-width: 100%;
+	margin: 0;
+	animation: leadFormSlideFromBottom 0.4s ease-out;
+}
+
+@keyframes leadFormSlideFromBottom {
+	from {
+		transform: translateY(100%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.wp-ai-chatbot-lead-form__header {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.wp-ai-chatbot-lead-form__title {
+	font-size: 1.25rem;
+	font-weight: 600;
+	color: var(--lead-form-title-color);
+	margin: 0 0 8px 0;
+	line-height: 1.3;
+}
+
+.wp-ai-chatbot-lead-form__subtitle {
+	font-size: 0.875rem;
+	color: var(--lead-form-subtitle-color);
+	margin: 0;
+	line-height: 1.5;
+}
+
+/* ==========================================================================
+   Form Fields
+   ========================================================================== */
+
+.wp-ai-chatbot-lead-form__form {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.wp-ai-chatbot-lead-form__field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.wp-ai-chatbot-lead-form__label {
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: var(--lead-form-label-color);
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.wp-ai-chatbot-lead-form__required {
+	color: var(--lead-form-required-color);
+	font-weight: 600;
+}
+
+.wp-ai-chatbot-lead-form__input {
+	width: 100%;
+	padding: 12px 14px;
+	font-size: 0.9375rem;
+	line-height: 1.5;
+	color: var(--lead-form-input-text);
+	background-color: var(--lead-form-input-bg);
+	border: 1px solid var(--lead-form-input-border);
+	border-radius: 8px;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	font-family: inherit;
+}
+
+.wp-ai-chatbot-lead-form__input::placeholder {
+	color: var(--lead-form-input-placeholder);
+}
+
+.wp-ai-chatbot-lead-form__input:focus {
+	outline: none;
+	border-color: var(--lead-form-input-focus-border);
+	box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.wp-ai-chatbot-lead-form__input:focus-visible {
+	outline: 2px solid var(--lead-form-input-focus-border);
+	outline-offset: 2px;
+}
+
+.wp-ai-chatbot-lead-form__textarea {
+	resize: vertical;
+	min-height: 80px;
+	max-height: 150px;
+}
+
+/* Field with error */
+.wp-ai-chatbot-lead-form__field.has-error .wp-ai-chatbot-lead-form__input {
+	border-color: var(--lead-form-error-color);
+}
+
+.wp-ai-chatbot-lead-form__field.has-error .wp-ai-chatbot-lead-form__input:focus {
+	box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
+
+.wp-ai-chatbot-lead-form__error {
+	font-size: 0.75rem;
+	color: var(--lead-form-error-color);
+	display: none;
+}
+
+.wp-ai-chatbot-lead-form__field.has-error .wp-ai-chatbot-lead-form__error {
+	display: block;
+}
+
+/* ==========================================================================
+   GDPR Checkbox
+   ========================================================================== */
+
+.wp-ai-chatbot-lead-form__field--gdpr {
+	margin-top: 4px;
+}
+
+.wp-ai-chatbot-lead-form__checkbox-label {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	cursor: pointer;
+	font-size: 0.8125rem;
+	color: var(--lead-form-subtitle-color);
+	line-height: 1.5;
+}
+
+.wp-ai-chatbot-lead-form__checkbox {
+	width: 18px;
+	height: 18px;
+	margin: 2px 0 0 0;
+	accent-color: var(--lead-form-submit-bg);
+	flex-shrink: 0;
+}
+
+.wp-ai-chatbot-lead-form__checkbox:focus-visible {
+	outline: 2px solid var(--lead-form-input-focus-border);
+	outline-offset: 2px;
+}
+
+.wp-ai-chatbot-lead-form__checkbox-text a {
+	color: var(--lead-form-submit-bg);
+	text-decoration: underline;
+}
+
+.wp-ai-chatbot-lead-form__checkbox-text a:hover {
+	text-decoration: none;
+}
+
+/* ==========================================================================
+   Actions
+   ========================================================================== */
+
+.wp-ai-chatbot-lead-form__actions {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-top: 8px;
+}
+
+.wp-ai-chatbot-lead-form__submit {
+	width: 100%;
+	padding: 12px 24px;
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--lead-form-submit-text);
+	background: var(--lead-form-submit-bg);
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background 0.2s ease, transform 0.1s ease;
+	font-family: inherit;
+}
+
+.wp-ai-chatbot-lead-form__submit:hover:not(:disabled) {
+	background: var(--lead-form-submit-hover);
+}
+
+.wp-ai-chatbot-lead-form__submit:active:not(:disabled) {
+	transform: scale(0.98);
+}
+
+.wp-ai-chatbot-lead-form__submit:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.wp-ai-chatbot-lead-form__submit:focus-visible {
+	outline: 2px solid var(--lead-form-submit-bg);
+	outline-offset: 2px;
+}
+
+.wp-ai-chatbot-lead-form__dismiss {
+	background: none;
+	border: none;
+	padding: 8px;
+	font-size: 0.875rem;
+	color: var(--lead-form-dismiss-color);
+	cursor: pointer;
+	transition: color 0.2s ease;
+	font-family: inherit;
+}
+
+.wp-ai-chatbot-lead-form__dismiss:hover {
+	color: var(--lead-form-dismiss-hover);
+}
+
+.wp-ai-chatbot-lead-form__dismiss:focus-visible {
+	outline: 2px solid var(--lead-form-input-focus-border);
+	outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Status Messages
+   ========================================================================== */
+
+.wp-ai-chatbot-lead-form__status {
+	margin-top: 12px;
+	text-align: center;
+}
+
+.wp-ai-chatbot-lead-form__loading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: 12px;
+	color: var(--lead-form-subtitle-color);
+	font-size: 0.875rem;
+}
+
+.wp-ai-chatbot-lead-form__spinner {
+	width: 18px;
+	height: 18px;
+	border: 2px solid var(--lead-form-border);
+	border-top-color: var(--lead-form-submit-bg);
+	border-radius: 50%;
+	animation: leadFormSpin 0.8s linear infinite;
+}
+
+@keyframes leadFormSpin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.wp-ai-chatbot-lead-form__success {
+	padding: 14px 16px;
+	background: var(--lead-form-success-bg);
+	color: var(--lead-form-success-color);
+	border-radius: 8px;
+	font-size: 0.9375rem;
+	font-weight: 500;
+	animation: leadFormFadeIn 0.3s ease-out;
+}
+
+@keyframes leadFormFadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.wp-ai-chatbot-lead-form__error-message {
+	padding: 12px 16px;
+	background: #fef2f2;
+	color: var(--lead-form-error-color);
+	border-radius: 8px;
+	font-size: 0.875rem;
+}
+
+.wp-ai-chatbot-widget[data-theme="dark"] .wp-ai-chatbot-lead-form__error-message {
+	background: #450a0a;
+}
+
+/* Hide elements */
+.wp-ai-chatbot-lead-form__loading[hidden],
+.wp-ai-chatbot-lead-form__success[hidden],
+.wp-ai-chatbot-lead-form__error-message[hidden] {
+	display: none !important;
+}
+
+/* ==========================================================================
+   Compact Mode (for inline in chat)
+   ========================================================================== */
+
+.wp-ai-chatbot-lead-form--compact {
+	padding: 16px;
+	margin: 8px;
+}
+
+.wp-ai-chatbot-lead-form--compact .wp-ai-chatbot-lead-form__header {
+	margin-bottom: 14px;
+}
+
+.wp-ai-chatbot-lead-form--compact .wp-ai-chatbot-lead-form__title {
+	font-size: 1.1rem;
+}
+
+.wp-ai-chatbot-lead-form--compact .wp-ai-chatbot-lead-form__form {
+	gap: 12px;
+}
+
+.wp-ai-chatbot-lead-form--compact .wp-ai-chatbot-lead-form__input {
+	padding: 10px 12px;
+	font-size: 0.875rem;
+}
+
+.wp-ai-chatbot-lead-form--compact .wp-ai-chatbot-lead-form__submit {
+	padding: 10px 20px;
+	font-size: 0.9375rem;
+}
+
+/* ==========================================================================
+   Modal Overlay
+   ========================================================================== */
+
+.wp-ai-chatbot-lead-form-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 10000;
+	animation: leadFormOverlayFadeIn 0.2s ease-out;
+}
+
+@keyframes leadFormOverlayFadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.wp-ai-chatbot-widget[data-theme="dark"] .wp-ai-chatbot-lead-form-overlay {
+	background: rgba(0, 0, 0, 0.7);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 480px) {
+	.wp-ai-chatbot-lead-form {
+		margin: 8px;
+		padding: 16px;
+	}
+
+	.wp-ai-chatbot-lead-form__title {
+		font-size: 1.1rem;
+	}
+
+	.wp-ai-chatbot-lead-form__input {
+		padding: 10px 12px;
+	}
+
+	.wp-ai-chatbot-lead-form__submit {
+		padding: 10px 20px;
+	}
+
+	.wp-ai-chatbot-lead-form[data-style="modal"] {
+		width: 95%;
+		max-width: none;
+	}
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+	.wp-ai-chatbot-lead-form,
+	.wp-ai-chatbot-lead-form[data-style="slide-up"],
+	.wp-ai-chatbot-lead-form__success,
+	.wp-ai-chatbot-lead-form-overlay {
+		animation: none;
+	}
+
+	.wp-ai-chatbot-lead-form__spinner {
+		animation-duration: 1.5s;
+	}
+}
+
+/* ==========================================================================
+   High Contrast Mode
+   ========================================================================== */
+
+@media (prefers-contrast: high) {
+	.wp-ai-chatbot-lead-form {
+		border-width: 2px;
+	}
+
+	.wp-ai-chatbot-lead-form__input {
+		border-width: 2px;
+	}
+
+	.wp-ai-chatbot-lead-form__submit {
+		border: 2px solid currentColor;
+	}
+}
+
+/* ==========================================================================
+   Honeypot (hidden from users)
+   ========================================================================== */
+
+.wp-ai-chatbot-lead-form__honeypot {
+	position: absolute;
+	left: -9999px;
+	top: -9999px;
+	opacity: 0;
+	pointer-events: none;
+}
+

@@ -1,0 +1,107 @@
+/**
+ * Content Manager Admin Styles.
+ *
+ * @package    WP_AI_Chatbot_LeadGen_Pro
+ * @subpackage WP_AI_Chatbot_LeadGen_Pro/assets/css
+ * @since      1.0.0
+ */
+
+.wp-ai-chatbot-content-manager-admin {
+	max-width: 1400px;
+}
+
+.wp-ai-chatbot-content-manager-admin .gap-statistics {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 20px;
+	margin: 20px 0;
+}
+
+.wp-ai-chatbot-content-manager-admin .stat-card {
+	background: #fff;
+	border: 1px solid #ccd0d4;
+	border-radius: 4px;
+	padding: 20px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.wp-ai-chatbot-content-manager-admin .stat-card h3 {
+	margin: 0 0 10px 0;
+	font-size: 14px;
+	font-weight: 600;
+	color: #555;
+}
+
+.wp-ai-chatbot-content-manager-admin .stat-card .stat-value {
+	font-size: 32px;
+	font-weight: 600;
+	color: #2271b1;
+}
+
+.wp-ai-chatbot-content-manager-admin .stat-card .stat-value.stat-success {
+	color: #00a32a;
+}
+
+.wp-ai-chatbot-content-manager-admin .stat-card .stat-value.stat-warning {
+	color: #dba617;
+}
+
+.wp-ai-chatbot-content-manager-admin .stat-card .stat-value.stat-error {
+	color: #d63638;
+}
+
+.wp-ai-chatbot-content-manager-admin .stat-card .stat-period {
+	margin: 10px 0 0 0;
+	font-size: 12px;
+	color: #666;
+}
+
+.wp-ai-chatbot-content-manager-admin .stale-badge {
+	display: inline-block;
+	margin-left: 10px;
+	padding: 2px 8px;
+	background: #dba617;
+	color: #fff;
+	border-radius: 3px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.wp-ai-chatbot-content-manager-admin .stale-content {
+	background-color: #fff8e5;
+}
+
+.wp-ai-chatbot-content-manager-admin .tab-content {
+	margin-top: 20px;
+}
+
+.wp-ai-chatbot-content-manager-admin .page-actions {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.wp-ai-chatbot-content-manager-admin .page-actions h2 {
+	margin: 0;
+}
+
+.wp-ai-chatbot-content-manager-admin .action-buttons {
+	display: flex;
+	gap: 10px;
+}
+
+.wp-ai-chatbot-content-manager-admin .check-column {
+	width: 2.2em;
+}
+
+.wp-ai-chatbot-content-manager-admin .check-column input[type="checkbox"] {
+	margin: 0;
+}
+
+.wp-ai-chatbot-content-manager-admin h3 {
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+

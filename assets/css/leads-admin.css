@@ -1,0 +1,582 @@
+/**
+ * Leads Admin Styles
+ *
+ * Styling for the leads management admin interface.
+ *
+ * @package WP_AI_Chatbot_LeadGen_Pro
+ * @since 1.0.0
+ */
+
+/* ==========================================================================
+   Summary Cards
+   ========================================================================== */
+
+.leads-summary-cards {
+	display: flex;
+	gap: 16px;
+	margin: 20px 0;
+	flex-wrap: wrap;
+}
+
+.summary-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 16px 20px;
+	min-width: 140px;
+	text-align: center;
+	transition: box-shadow 0.2s ease;
+}
+
+.summary-card:hover {
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.summary-card .card-value {
+	display: block;
+	font-size: 28px;
+	font-weight: 600;
+	color: #1d2327;
+	line-height: 1.2;
+}
+
+.summary-card .card-label {
+	display: block;
+	font-size: 12px;
+	color: #646970;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	margin-top: 4px;
+}
+
+.summary-card.card-new .card-value {
+	color: #2271b1;
+}
+
+.summary-card.card-qualified .card-value {
+	color: #00a32a;
+}
+
+.summary-card.card-score .card-value {
+	color: #9a6700;
+}
+
+.summary-card.card-converted .card-value {
+	color: #135e96;
+}
+
+/* ==========================================================================
+   List Table Enhancements
+   ========================================================================== */
+
+/* Lead name cell */
+.lead-name-cell {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.lead-name-cell .lead-avatar {
+	border-radius: 50%;
+	flex-shrink: 0;
+}
+
+/* Score badges */
+.lead-score {
+	display: inline-block;
+	padding: 4px 10px;
+	border-radius: 12px;
+	font-weight: 600;
+	font-size: 13px;
+	min-width: 36px;
+	text-align: center;
+}
+
+.lead-score.score-high {
+	background: #d4edda;
+	color: #155724;
+}
+
+.lead-score.score-medium {
+	background: #fff3cd;
+	color: #856404;
+}
+
+.lead-score.score-low {
+	background: #f8d7da;
+	color: #721c24;
+}
+
+/* Grade badges */
+.lead-grade {
+	display: inline-block;
+	padding: 4px 10px;
+	border-radius: 4px;
+	font-weight: 700;
+	font-size: 13px;
+	min-width: 32px;
+	text-align: center;
+}
+
+.lead-grade.grade-a-plus,
+.lead-grade.grade-a {
+	background: linear-gradient(135deg, #00a32a 0%, #007017 100%);
+	color: #fff;
+}
+
+.lead-grade.grade-b {
+	background: linear-gradient(135deg, #2271b1 0%, #135e96 100%);
+	color: #fff;
+}
+
+.lead-grade.grade-c {
+	background: #9a6700;
+	color: #fff;
+}
+
+.lead-grade.grade-d {
+	background: #ba5d04;
+	color: #fff;
+}
+
+.lead-grade.grade-f {
+	background: #d63638;
+	color: #fff;
+}
+
+.lead-grade.grade-dq {
+	background: #50575e;
+	color: #fff;
+}
+
+.lead-grade.grade-unknown {
+	background: #c3c4c7;
+	color: #50575e;
+}
+
+/* Status badges */
+.lead-status {
+	display: inline-block;
+	padding: 3px 8px;
+	border-radius: 3px;
+	font-size: 12px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.lead-status.status-new {
+	background: #e5f5fa;
+	color: #0073aa;
+}
+
+.lead-status.status-qualified {
+	background: #d4edda;
+	color: #155724;
+}
+
+.lead-status.status-contacted {
+	background: #fff3cd;
+	color: #856404;
+}
+
+.lead-status.status-converted {
+	background: #cce5ff;
+	color: #004085;
+}
+
+.lead-status.status-disqualified {
+	background: #f8d7da;
+	color: #721c24;
+}
+
+/* Company size badge */
+.company-size-badge {
+	display: inline-block;
+	padding: 1px 6px;
+	background: #f0f0f1;
+	border-radius: 3px;
+	font-size: 11px;
+	color: #50575e;
+	margin-left: 4px;
+}
+
+/* UTM info */
+.utm-info {
+	color: #646970;
+	font-size: 11px;
+}
+
+/* Email verified icon */
+.column-email .dashicons-yes-alt {
+	color: #00a32a;
+	font-size: 14px;
+	width: 14px;
+	height: 14px;
+	vertical-align: middle;
+}
+
+/* No value placeholder */
+.no-value {
+	color: #c3c4c7;
+}
+
+/* Advanced filters */
+.advanced-filters {
+	margin-top: 10px;
+	padding: 10px;
+	background: #f6f7f7;
+	border-radius: 4px;
+}
+
+.advanced-filters label {
+	margin-right: 5px;
+	margin-left: 15px;
+}
+
+.advanced-filters label:first-child {
+	margin-left: 0;
+}
+
+/* ==========================================================================
+   Single Lead View
+   ========================================================================== */
+
+.lead-view-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+	margin-top: 20px;
+}
+
+.lead-section {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 20px;
+}
+
+.lead-section h3 {
+	margin: 0 0 15px 0;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #f0f0f1;
+	font-size: 14px;
+	color: #1d2327;
+}
+
+/* Main info section */
+.lead-main-info {
+	grid-column: span 2;
+	display: flex;
+	gap: 30px;
+	align-items: flex-start;
+}
+
+.lead-avatar-large {
+	flex-shrink: 0;
+}
+
+.lead-avatar-large img {
+	border-radius: 50%;
+	border: 3px solid #f0f0f1;
+}
+
+.lead-contact-info h2 {
+	margin: 0 0 10px 0;
+	font-size: 24px;
+}
+
+.lead-contact-info p {
+	margin: 5px 0;
+	color: #50575e;
+}
+
+.lead-contact-info .dashicons {
+	color: #c3c4c7;
+	margin-right: 8px;
+	vertical-align: middle;
+}
+
+.lead-contact-info a {
+	text-decoration: none;
+}
+
+.lead-contact-info .verified-badge {
+	color: #00a32a;
+	margin-left: 5px;
+}
+
+.status-badge {
+	display: inline-block;
+	padding: 6px 12px;
+	border-radius: 4px;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.status-badge.status-new {
+	background: #e5f5fa;
+	color: #0073aa;
+}
+
+.status-badge.status-qualified {
+	background: #d4edda;
+	color: #155724;
+}
+
+.status-badge.status-contacted {
+	background: #fff3cd;
+	color: #856404;
+}
+
+.status-badge.status-converted {
+	background: #cce5ff;
+	color: #004085;
+}
+
+.status-badge.status-disqualified {
+	background: #f8d7da;
+	color: #721c24;
+}
+
+/* Score card */
+.lead-score-card {
+	text-align: center;
+}
+
+.score-display {
+	margin: 20px 0;
+}
+
+.score-circle {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: #fff;
+}
+
+.score-circle .score-value {
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 1;
+}
+
+.score-circle .score-max {
+	font-size: 14px;
+	opacity: 0.8;
+}
+
+.score-breakdown {
+	text-align: left;
+}
+
+.score-item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 8px;
+}
+
+.score-item .score-label {
+	width: 100px;
+	font-size: 12px;
+	color: #646970;
+}
+
+.score-item .score-bar {
+	flex: 1;
+	height: 8px;
+	background: #f0f0f1;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.score-item .score-bar span {
+	display: block;
+	height: 100%;
+	background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+	border-radius: 4px;
+	transition: width 0.3s ease;
+}
+
+.score-item .score-num {
+	width: 30px;
+	text-align: right;
+	font-weight: 600;
+	font-size: 12px;
+}
+
+/* Enriched data table */
+.lead-enriched-data table th {
+	width: 35%;
+	font-weight: 500;
+}
+
+/* Timeline */
+.lead-timeline {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.lead-timeline li {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 10px 0;
+	border-bottom: 1px solid #f0f0f1;
+}
+
+.lead-timeline li:last-child {
+	border-bottom: none;
+}
+
+.lead-timeline .timeline-icon {
+	color: #c3c4c7;
+}
+
+.lead-timeline .timeline-label {
+	flex: 1;
+	color: #646970;
+}
+
+.lead-timeline .timeline-value {
+	font-weight: 500;
+}
+
+/* Actions */
+.lead-actions {
+	grid-column: span 2;
+}
+
+.action-buttons {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.action-buttons .button {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.action-buttons .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+}
+
+/* ==========================================================================
+   Edit Form
+   ========================================================================== */
+
+.form-table .required {
+	color: #d63638;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media screen and (max-width: 1200px) {
+	.lead-view-container {
+		grid-template-columns: 1fr;
+	}
+
+	.lead-main-info,
+	.lead-actions {
+		grid-column: span 1;
+	}
+}
+
+@media screen and (max-width: 782px) {
+	.leads-summary-cards {
+		flex-direction: column;
+	}
+
+	.summary-card {
+		min-width: auto;
+	}
+
+	.lead-main-info {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.advanced-filters {
+		display: block !important;
+	}
+
+	.advanced-filters label {
+		display: block;
+		margin: 10px 0 5px;
+	}
+
+	.advanced-filters input {
+		width: 100%;
+	}
+}
+
+/* ==========================================================================
+   Dark Mode (Admin Color Scheme Support)
+   ========================================================================== */
+
+body.admin-color-midnight .summary-card,
+body.admin-color-midnight .lead-section {
+	background: #363b3f;
+	border-color: #464b50;
+}
+
+body.admin-color-midnight .summary-card .card-value,
+body.admin-color-midnight .lead-section h3 {
+	color: #fff;
+}
+
+body.admin-color-midnight .summary-card .card-label,
+body.admin-color-midnight .lead-contact-info p {
+	color: #9ea3a8;
+}
+
+body.admin-color-midnight .lead-section h3 {
+	border-color: #464b50;
+}
+
+body.admin-color-midnight .score-item .score-bar {
+	background: #464b50;
+}
+
+body.admin-color-midnight .lead-timeline li {
+	border-color: #464b50;
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+	.leads-summary-cards {
+		display: none;
+	}
+
+	.lead-section {
+		break-inside: avoid;
+		page-break-inside: avoid;
+	}
+
+	.action-buttons {
+		display: none;
+	}
+}
+
+
+
+
+
+
